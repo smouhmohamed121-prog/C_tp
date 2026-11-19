@@ -13,7 +13,7 @@ void Affichage(TypeTableau T);
 TypeTableau DoubleTableau(TypeTableau T);
 int main(void){
 
-    const int n;
+    int n;
     printf("Enter le nomber des elements : ");
     scanf ("%d",&n);
     TypeTableau T = CreationTableau(n);
@@ -31,9 +31,12 @@ return 0;}
 //todo:  qui crée un tableau de n éléments.
 
 TypeTableau CreationTableau(int n){
-
+    
     TypeTableau tableau;
     tableau.tab = malloc (n * sizeof(int));
+    if (tableau.tab ==NULL){
+        exit(0);
+    }
     tableau.nb_elem = n;
     return tableau;
 }
